@@ -16,7 +16,9 @@ import com.xmwdkk.boothprint.print.PrintUtil;
 import com.xmwdkk.boothprint.print.PrinterMsgType;
 import com.xmwdkk.boothprint.util.ToastUtil;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /***
  *  Created by liugruirong on 2017/8/3.
@@ -55,8 +57,13 @@ public class MainActivity extends BluetoothActivity implements View.OnClickListe
         BluetoothController.init(this);
     }
 
+    public static class MessageEvent {
+        
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
 
-
+    }
 
     @Override
     public void btStatusChanged(Intent intent) {
